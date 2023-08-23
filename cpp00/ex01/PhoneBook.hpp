@@ -6,9 +6,14 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 02:15:22 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/08/23 02:18:49 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/08/23 02:20:53 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include <iostream>
 #include <string>
@@ -33,3 +38,5 @@ class PhoneBook
 		void    add_contact();
 		void	search_contact();
 };
+
+#endif

@@ -78,7 +78,11 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter a command: ";
-		getline(std::cin, command);
+		if(!getline(std::cin, command))
+		{
+			std::cout << "\n" << "END OF INPUT , Exiting program" << std::endl;
+			break;
+		}
 		if (command == "ADD")
 			phonebook.add_contact();
 		else if (command == "SEARCH")

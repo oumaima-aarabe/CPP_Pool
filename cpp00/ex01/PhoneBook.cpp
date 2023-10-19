@@ -107,7 +107,6 @@ int main()
 		}
 		if (command == "ADD")
 		{
-
 			Contact newContact;
             phonebook.add_contact(newContact);
 		}

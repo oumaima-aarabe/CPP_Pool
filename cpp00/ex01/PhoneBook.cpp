@@ -68,20 +68,22 @@ void   print_contact(std::string str)
 			print_contact(contacts[i].getNickname());
 			std::cout << "\n";
 		}
-		std::cout << "Enter index: ";
+		std::cout << "Enter index between 1 and " << nb_contacts << std::endl;
 		std::string inde;
-		std::getline(std::cin, inde);
-		int index = std::strtod(inde.c_str(), NULL);
-		if (index < 8 && index < nb_contacts)
+		if(getline(std::cin, inde))
 		{
-			std::cout  << index << "\n";
-			std::cout << "First name: " << contacts[index].getFirstName() << "\n";
-			std::cout << "Last name: " << contacts[index].getLastName() << "\n";
-			std::cout << "Nickname: " << contacts[index].getNickname() << "\n";
-			std::cout << "Phone number: " << contacts[index].getPhoneNumber() << "\n";
+			int index = strtod(inde.c_str(), NULL);
+			if (index > 0  && index <= nb_contacts )
+			{
+				std::cout  << index << "\n";
+				std::cout << "First name: " << contacts[index - 1].getFirstName() << "\n";
+				std::cout << "Last name: " << contacts[index - 1].getLastName() << "\n";
+				std::cout << "Nickname: " << contacts[index  - 1].getNickname() << "\n";
+				std::cout << "Phone number: " << contacts[index - 1].getPhoneNumber() << "\n";
+			}
+			else
+				std::cout << "Invalid index\n";
 		}
-		else
-			std::cout << "Invalid index\n";
 	}
 
 PhoneBook::PhoneBook()

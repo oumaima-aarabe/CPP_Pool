@@ -1,8 +1,8 @@
-NAME = zombie
+NAME = Phonebook
 
-INC = Zombie.hpp
+INC = PhoneBook.hpp
 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = Contact.cpp PhoneBook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -12,10 +12,13 @@ RM = rm -rf
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-all: $(NAME) $(INC)
+all: $(NAME)
 
-$(NAME): $(OBJ) $(INC)
+$(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(INC)
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
@@ -23,6 +26,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re

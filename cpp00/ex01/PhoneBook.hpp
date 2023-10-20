@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <stdlib.h>
 #include "Contact.hpp"
 
 void   print_contact(std::string str);

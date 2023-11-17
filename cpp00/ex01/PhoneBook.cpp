@@ -20,35 +20,41 @@ void   print_contact(std::string str)
 		std::cout << std::string(10 - str.length(), ' ') << str;
 }
 
-	void    PhoneBook::add_contact( Contact &new_contact)
+	void    PhoneBook::add_contact()
 	{
+		Contact new_contact;
 		std::cout << "Enter first name: ";
 		std::string first_name;
-		std::cin >> first_name;
+		// std::cin >> first_name;
+		getline(std::cin, first_name);
 		new_contact.set_first_name(first_name);
 
 		std::cout << "Enter last name: ";
 		std::string last_name;
-		std::cin >> last_name;
+		// std::cin >> last_name;
+		getline(std::cin, last_name);
 		new_contact.set_last_name(last_name);
 
 		std::cout << "Enter nickname: ";
 		std::string nickname;
-		std::cin >> nickname;
+		// std::cin >> nickname;
+		getline(std::cin, nickname);
 		new_contact.set_nickname(nickname);
 
 		std::cout << "Enter phone number: ";
 		std::string phone_number;
-		std::cin >> phone_number;
+		// std::cin >> phone_number;
+		getline(std::cin, phone_number);
 		new_contact.set_phone_number(phone_number);
 
 		std::cout << "Enter Darkest Secret: ";
 		std::string darkest_secret;
-		std::cin >> darkest_secret;
+		// std::cin >> darkest_secret;
+		getline(std::cin, darkest_secret);
 		new_contact.set_darkest_secret(darkest_secret);
 
 		contacts[nb_contacts % 8] = new_contact;
-		std::cin.ignore();
+		// std::cin.ignore();
 		nb_contacts++;
 	}
 	void	PhoneBook::search_contact()
@@ -60,7 +66,7 @@ void   print_contact(std::string str)
     	}
 		for (int i = 0;(i < 8 && i < nb_contacts); i++)
 		{
-			std::cout << std::string(10, ' ') << i << "|";
+			std::cout << std::string(10, ' ') << (i + 1) << "|";
 			print_contact(contacts[i].getFirstName());
 			std::cout << "|";
 			print_contact(contacts[i].getLastName());
@@ -75,7 +81,7 @@ void   print_contact(std::string str)
 			int index = strtod(inde.c_str(), NULL);
 			if (index > 0  && index <= nb_contacts )
 			{
-				std::cout  << index << "\n";
+				// std::cout  << index << "\n";
 				std::cout << "First name: " << contacts[index - 1].getFirstName() << "\n";
 				std::cout << "Last name: " << contacts[index - 1].getLastName() << "\n";
 				std::cout << "Nickname: " << contacts[index  - 1].getNickname() << "\n";
@@ -92,6 +98,7 @@ PhoneBook::PhoneBook()
 }
 
 PhoneBook::~PhoneBook(){
+
 }
 
 int main()
@@ -108,10 +115,7 @@ int main()
 			break;
 		}
 		if (command == "ADD")
-		{
-			Contact newContact;
-            phonebook.add_contact(newContact);
-		}
+            phonebook.add_contact();
 		else if (command == "SEARCH")
 			phonebook.search_contact();
 		else if (command == "EXIT")

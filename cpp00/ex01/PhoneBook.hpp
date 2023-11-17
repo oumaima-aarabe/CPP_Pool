@@ -23,12 +23,13 @@ void   print_contact(std::string str);
 
 class PhoneBook 
 {
-	Contact contacts[8];
-	int     nb_contacts;
+	private:
+		Contact contacts[8];
+		int     nb_contacts;
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void    add_contact(Contact &new_contact);
+		void    add_contact();
 		void	search_contact();
 };
 

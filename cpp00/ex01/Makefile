@@ -6,7 +6,7 @@
 #    By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 04:10:26 by ouaarabe          #+#    #+#              #
-#    Updated: 2023/11/18 04:10:27 by ouaarabe         ###   ########.fr        #
+#    Updated: 2023/11/18 08:26:53 by ouaarabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Phonebook
 
 INC = PhoneBook.hpp Contact.hpp
 
-SRC = Contact.cpp PhoneBook.cpp
+SRC = Contact.cpp PhoneBook.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

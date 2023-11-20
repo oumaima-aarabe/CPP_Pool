@@ -6,13 +6,15 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:10:16 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/11/18 04:10:17 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/11/18 06:12:50 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 Contact::Contact(){}
+
+Contact::~Contact(){}
 
 const std::string& Contact::getFirstName() const {
     return first_name;

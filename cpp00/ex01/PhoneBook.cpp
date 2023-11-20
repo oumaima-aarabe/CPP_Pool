@@ -6,7 +6,7 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:53:01 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/11/18 05:27:55 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/11/20 06:55:42 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void   print_contact(std::string str)
 {
-	if (str.length() > 10)
+	if (str.length() == 10)
+		std::cout<< str;
+	else if (str.length() > 10)
 		std::cout << str.substr(0, 9) << ".";
 	else if (str.length() < 10)
 		std::cout << std::string(10 - str.length(), ' ') << str;
@@ -89,7 +91,7 @@ bool check_ws(const std::string &str)
 	{
 		if (nb_contacts == 0) 
 		{
-        	 std::cout << "No contacts to display." << std::endl;
+        	std::cout << "No contacts to display." << std::endl;
         	return;
     	}
 		
@@ -105,8 +107,11 @@ bool check_ws(const std::string &str)
 		}
 		int flag = 0;
 		while (!flag)
-		{		
-			std::cout << "Enter index between 1 and " << nb_contacts << std::endl;
+		{
+			if (nb_contacts > 8)
+				std::cout << "Enter index between 1 and 8" << std::endl;
+			else			
+				std::cout << "Enter index between 1 and " << nb_contacts << std::endl;
 			std::string inde;
 			if(!getline(std::cin, inde))
 				break;
@@ -114,13 +119,14 @@ bool check_ws(const std::string &str)
 			{	
 				if (inde.length() == 1)
 				{
-					int index = atoi(inde.c_str());
-					if (index > 0  && index <= nb_contacts )
+					int index = std::atoi(inde.c_str());
+					if (index > 0  && index <= nb_contacts  && index <= 8)
 					{
 						std::cout << "First name: " << contacts[index - 1].getFirstName() << "\n";
 						std::cout << "Last name: " << contacts[index - 1].getLastName() << "\n";
 						std::cout << "Nickname: " << contacts[index  - 1].getNickname() << "\n";
 						std::cout << "Phone number: " << contacts[index - 1].getPhoneNumber() << "\n";
+						std::cout << "Darkest secret: " << contacts[index - 1].getDarkestSecret() << "\n";
 						flag = 1;
 					}
 					else
@@ -137,38 +143,8 @@ PhoneBook::PhoneBook()
 	nb_contacts = 0;
 }
 
-PhoneBook::~PhoneBook(){
-
-}
-
-int main()
+PhoneBook::~PhoneBook()
 {
-	PhoneBook phonebook;
-	std::string command;
 
-	std::cout << "Welcome to my Phonebook " << std::endl ;
-	while (1)
-	{
-		std::cout << "Enter a command <ADD> <SEARCH> or <EXIT> : ";
-		if(!getline(std::cin, command))
-		{
-			std::cout << "\n" << "END OF INPUT , Exiting program" << std::endl;
-			break;
-		}
-		if (command == "ADD"){
-			
-            if (phonebook.add_contact())
-			{
-				std::cout << "\n" << "END OF INPUT , Exiting program" << std::endl;
-				break;
-			}
-		}
-		else if (command == "SEARCH")
-			phonebook.search_contact();
-		else if (command == "EXIT")
-			break ;
-		else
-			std::cout << "Invalid command\n";
-		command.clear();
-	}
 }
+

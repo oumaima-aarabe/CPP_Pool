@@ -6,7 +6,7 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 02:15:22 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/11/18 05:16:40 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/11/18 01:27:25 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <string>
 #include <cstring>
 #include <stdlib.h>
-#include <cctype>
 #include "Contact.hpp"
 
 void   print_contact(std::string str);

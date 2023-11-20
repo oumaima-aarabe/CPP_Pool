@@ -6,7 +6,7 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:10:12 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/11/18 04:10:13 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/11/18 06:12:32 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Contact
 		std::string	darkest_secret;
 	public:
 		Contact();
+		~Contact();
 
 		const std::string& getFirstName() const;
 		const std::string& getLastName() const;

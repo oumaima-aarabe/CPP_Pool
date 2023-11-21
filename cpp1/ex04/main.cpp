@@ -2,12 +2,8 @@
 #include <fstream>
 #include <cstring>
 
-void replaceAllOccurrences(std::string& content, const std::string& s1, const std::string& s2) {
-    size_t pos = 0;
-    while ((pos = content.find(s1, pos)) != std::string::npos) {
-        content.replace(pos, s1.length(), s2);
-        pos += s2.length();
-    }
+void replacealloccurrences(std::string& content, const std::string& s1, const std::string& s2) {
+ 
 }
 
 int main(int argc, char* argv[]) {
@@ -29,7 +25,7 @@ int main(int argc, char* argv[]) {
     std::string content((std::istreambuf_iterator<char>(inputFile)), std::istreambuf_iterator<char>());
     inputFile.close();
 
-    replaceAllOccurrences(content, s1, s2);
+    replacealloccurrences(content, s1, s2);
 
     std::ofstream outputFile(filename, std::ios::trunc);
     if (!outputFile) {

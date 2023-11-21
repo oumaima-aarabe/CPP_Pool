@@ -9,11 +9,11 @@ Weapon::~Weapon()
 
 }
 
-const std::string Weapon::getType()
+const std::string& Weapon::getType()
 {
-    return (Weapon::type);
+    return (type);
 }
-void Weapon::setType(std::string _type)
+void Weapon::setType(std::string &_type)
 {
-    Weapon::type = _type;
+    type = _type;
 }

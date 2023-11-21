@@ -6,7 +6,7 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 08:17:04 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/11/18 08:27:22 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:21:02 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter a command <ADD> <SEARCH> or <EXIT> : ";
-		if(!getline(std::cin, command))
+		if(!getline(std::cin, command) || std::cin.eof())
 		{
 			std::cout << "\n" << "END OF INPUT , Exiting program" << std::endl;
 			break;

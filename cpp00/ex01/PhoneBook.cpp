@@ -6,7 +6,7 @@
 /*   By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 22:53:01 by ouaarabe          #+#    #+#             */
-/*   Updated: 2023/11/20 06:55:42 by ouaarabe         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:39:56 by ouaarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool check_ws(const std::string &str)
 		while (first_name.empty() || check_ws(first_name))
 		{
 			std::cout << "Enter first name: ";
-			if (!getline(std::cin, first_name))
+			if (!getline(std::cin, first_name ) || std::cin.eof())
 				return (1);
 		}
 		new_contact.set_first_name(first_name);
@@ -48,7 +48,7 @@ bool check_ws(const std::string &str)
 		while (last_name.empty() || check_ws(last_name))
 		{	
 			std::cout << "Enter last name: ";
-			if (!getline(std::cin, last_name))
+			if (!getline(std::cin, last_name) || std::cin.eof())
 				return (1);
 		}
 		new_contact.set_last_name(last_name);
@@ -57,7 +57,7 @@ bool check_ws(const std::string &str)
 		while (nickname.empty() || check_ws(nickname))
 		{	
 			std::cout << "Enter nickname: ";
-			if(!getline(std::cin, nickname))
+			if(!getline(std::cin, nickname) || std::cin.eof())
 				return (1);
 		}
 		new_contact.set_nickname(nickname);
@@ -67,7 +67,7 @@ bool check_ws(const std::string &str)
 		{
 			
 			std::cout << "Enter phone number: ";
-			if (!getline(std::cin, phone_number))
+			if (!getline(std::cin, phone_number) || std::cin.eof())
 				return (1);
 		}
 		new_contact.set_phone_number(phone_number);
@@ -76,7 +76,7 @@ bool check_ws(const std::string &str)
 		while (darkest_secret.empty() || check_ws(darkest_secret))
 		{		
 			std::cout << "Enter Darkest Secret: ";
-			if (!getline(std::cin, darkest_secret))
+			if (!getline(std::cin, darkest_secret) || std::cin.eof())
 				return (1);
 		}
 		new_contact.set_darkest_secret(darkest_secret);
@@ -103,7 +103,7 @@ bool check_ws(const std::string &str)
 			print_contact(contacts[i].getLastName());
 			std::cout << "|";
 			print_contact(contacts[i].getNickname());
-			std::cout << "\n";
+			std::cout << "|" << std::endl;
 		}
 		int flag = 0;
 		while (!flag)
@@ -113,7 +113,7 @@ bool check_ws(const std::string &str)
 			else			
 				std::cout << "Enter index between 1 and " << nb_contacts << std::endl;
 			std::string inde;
-			if(!getline(std::cin, inde))
+			if(!getline(std::cin, inde) || std::cin.eof())
 				break;
 			if (!inde.empty() && !check_ws(inde))
 			{	

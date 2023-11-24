@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 
-int main(int ac, char **av) {
+int main(int ac, char **av) 
+{
     if (ac != 4) {
         std::cerr << "Usage: " << av[0] << " <filename> <s1> <s2>\n";
         return 1;
@@ -32,24 +33,24 @@ int main(int ac, char **av) {
     }
 
     std::string line;
+    std::string content;
     while (std::getline(inputfile, line)) 
+		content += line + "\n";
+    size_t pos = 0;
+	if (!s1.empty())
 	{
-        size_t pos = 0;
-		if (!s1.empty())
+		while ((pos = content.find(s1, pos)) != std::string::npos) 
 		{
-			while ((pos = line.find(s1, pos)) != std::string::npos) 
+			if (!s2.empty())
 			{
-				if (!s2.empty())
-				{
-					line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
-					pos += s2.length();
-				}
-				else
-					line = line.substr(0, pos) + line.substr(pos + s1.length());
+				content = content.substr(0, pos) + s2 + content.substr(pos + s1.length());
+				pos += s2.length();
 			}
+			else
+				content = content.substr(0, pos) + content.substr(pos + s1.length());
 		}
-        outputfile << line << std::endl;
-    }
+	}
+        outputfile << content << std::endl;
 
     std::cout << "Replacement completed. Output written to: " << o_filename << std::endl;
 

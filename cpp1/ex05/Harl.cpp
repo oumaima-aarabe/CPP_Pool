@@ -16,8 +16,7 @@ void Harl::error() {
     std::cout << "i am giving a really bad review to this place\n";
 }
 
-void Harl::complain(std::string level) 
-{
+void Harl::complain(std::string level) {
     void (Harl::*funcPtr)() = nullptr;
 
     if (level == "debug") {

@@ -17,20 +17,7 @@ void Harl::error() {
 }
 
 void Harl::complain(std::string level) {
-    void (Harl::*funcPtr)() = nullptr;
+   
 
-    if (level == "debug") {
-        funcPtr = &Harl::debug;
-    } else if (level == "info") {
-        funcPtr = &Harl::info;
-    } else if (level == "warning") {
-        funcPtr = &Harl::warning;
-    } else if (level == "error") {
-        funcPtr = &Harl::error;
-    } else {
-        std::cout << "Unknown level: " << level << "\n";
-        return;
-    }
 
-    (this->*funcPtr)();
 }

@@ -35,7 +35,14 @@ int main(int ac, char **av)
     std::string line;
     std::string content;
     while (std::getline(inputfile, line)) 
-		content += line + "\n";
+    {
+		content += line;
+        if (!inputfile.eof())
+        {
+            std::cout << line << '\n';
+            content += "\n";
+        }
+    }
     size_t pos = 0;
 	if (!s1.empty())
 	{
@@ -50,7 +57,7 @@ int main(int ac, char **av)
 				content = content.substr(0, pos) + content.substr(pos + s1.length());
 		}
 	}
-        outputfile << content << std::endl;
+        outputfile << content;
 
     std::cout << "Replacement completed. Output written to: " << o_filename << std::endl;
 

@@ -19,7 +19,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) *.replace
 
 fclean: clean
 	$(RM) $(NAME)

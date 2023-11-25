@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <iostream>
-
+#include <fstream>
+using namespace std;
 struct a {
 	int a;
 	void alo()
@@ -12,7 +13,10 @@ struct a {
 
 int main(int argc, char const *argv[])
 {
-    struct a b;
-    b.alo();
+    std::ifstream  a(".gitignore");
+    std::string b;
+    getline(a, b);
+    if (a.eof())
+        cout << "hello\n";
     return 0;
 }

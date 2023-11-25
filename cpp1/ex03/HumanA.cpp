@@ -6,10 +6,10 @@ HumanA::HumanA(std::string _name, Weapon &_weapon): name(_name), weapon(_weapon)
 }
 HumanA::~HumanA()
 {
-    std::cout << HumanA::name << " withdrawed " << std::endl;
+    std::cout << name << " withdrawed " << std::endl;
 }
 void HumanA::attack()
 {
-    std::cout << HumanA::name << "attacked with " ;
-    std::cout << HumanA::weapon << std::endl;
+    std::cout << name << "attacked with " ;
+    std::cout << weapon << std::endl;
 }

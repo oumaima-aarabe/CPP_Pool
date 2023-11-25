@@ -38,10 +38,7 @@ int main(int ac, char **av)
     {
 		content += line;
         if (!inputfile.eof())
-        {
-            std::cout << line << '\n';
             content += "\n";
-        }
     }
     size_t pos = 0;
 	if (!s1.empty())

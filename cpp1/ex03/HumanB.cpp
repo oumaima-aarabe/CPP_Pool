@@ -17,5 +17,5 @@ void HumanB::attack() const
 
 void HumanB::setWeapon(Weapon &_weapon)
 {
-    HumanB::weapon = &_weapon;
+    weapon = &_weapon;
 }

@@ -1,4 +1,4 @@
-NAME = Replace
+NAME = Harl
 
 SRC = main.cpp Harl.cpp
 

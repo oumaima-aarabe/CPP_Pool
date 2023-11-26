@@ -8,4 +8,6 @@ int main()
 	randomChump("appah");
 	delete zombiee;
 	delete zombie;
+
+	
 }

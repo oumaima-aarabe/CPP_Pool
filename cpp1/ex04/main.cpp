@@ -14,13 +14,13 @@ int main(int ac, char **av)
         std::cerr << "Error opening file: " << av[1] << std::endl;
         return 1;
     }
-
-	if (inputfile.peek() == std::ifstream::traits_type::eof()) 
+    if(inputfile.eof())
 	{
 		std::cerr << "Error: Input file is empty" << std::endl;
         inputfile.close();
         return 1;
     }
+    
     std::string s1 = av[2];
     std::string s2 = av[3];
     std::string o_filename = std::string(av[1]) + ".replace";

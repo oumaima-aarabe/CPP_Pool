@@ -38,7 +38,7 @@ class Fixed
 
 		~Fixed();
 
-        int getRawBits( void ) const;
+        int getRawBits( void) const;
         void setRawBits( int const raw );
 
         float toFloat( void ) const;

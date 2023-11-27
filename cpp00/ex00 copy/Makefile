@@ -6,7 +6,7 @@
 #    By: ouaarabe <ouaarabe@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 04:10:29 by ouaarabe          #+#    #+#              #
-#    Updated: 2023/11/18 04:10:30 by ouaarabe         ###   ########.fr        #
+#    Updated: 2023/11/27 15:29:46 by ouaarabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC = c++
 
 RM = rm -rf
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

@@ -113,7 +113,25 @@ Fixed Fixed::operator--(int)
     return(tmp);
 }
 
-//---------------increment and decrement operators----------------------//
+//---------------min && max----------------------//
+Fixed& Fixed::min(Fixed &fixed1, Fixed &fixed2) {
+	return (fixed1 <= fixed2 ? fixed1 : fixed2);
+}
+
+const Fixed& Fixed::min(const Fixed &fixed1, const Fixed &fixed2) {
+	return (fixed1 <= fixed2 ? fixed1 : fixed2);
+}
+
+Fixed& Fixed::max(Fixed &fixed1, Fixed &fixed2) {
+	return (fixed1 >= fixed2 ? fixed1 : fixed2);
+}
+
+const Fixed& Fixed::max(const Fixed &fixed1, const Fixed &fixed2) {
+	return (fixed1 >= fixed2 ? fixed1 : fixed2);
+}
+
+//---------------min && max----------------------//
+
 int Fixed::getRawBits( void ) const
 {
     // std::cout << "getRawBits member function called" << std::endl;

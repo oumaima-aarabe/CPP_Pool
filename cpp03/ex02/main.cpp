@@ -5,12 +5,13 @@
 
 int main ()
 {
-	FragTrap oumi("oumi");
+	FragTrap lol("oumi");
 
+	FragTrap lool (lol);
+	FragTrap oumi;
+	oumi = lool;
 	oumi.attack("saba");
 	oumi.beRepaired(1);
 	oumi.takeDamage(1);
 	oumi.highFivesGuys();
-	// ayoub.guardGate();
-
 }

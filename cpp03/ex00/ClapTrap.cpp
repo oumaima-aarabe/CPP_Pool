@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-   std::cout << "Default constructor called.." << std::endl;
+   std::cout << " ClapTrap Default constructor called.." << std::endl;
    Name = "random";
    hit_p = 10;
    energ_p = 10;
@@ -10,9 +10,9 @@ ClapTrap::ClapTrap(){
 
 
 ClapTrap::ClapTrap(std::string _name){
-   std::cout << "parameterized constructor called.." << std::endl;
-    Name = _name;
-    hit_p = 10;
+   std::cout << " ClapTrap parameterized constructor called.." << std::endl;
+   Name = _name;
+   hit_p = 10;
    energ_p = 10;
    attack_dmg = 0;
 
@@ -20,17 +20,17 @@ ClapTrap::ClapTrap(std::string _name){
 
 
 ClapTrap& ClapTrap::operator= (const ClapTrap &ct){
-   std::cout << "copy assignment operator overload called" << std::endl;
-    this->Name = ct.Name;
-    this->energ_p = ct.energ_p;
-    this->hit_p = ct.hit_p;
-    this->attack_dmg = ct.attack_dmg;
-    return (*this);
+   std::cout << " ClapTrap copy assignment operator overload called" << std::endl;
+   this->Name = ct.Name;
+   this->energ_p = ct.energ_p;
+   this->hit_p = ct.hit_p;
+   this->attack_dmg = ct.attack_dmg;
+   return (*this);
 
 }
 
 ClapTrap::ClapTrap(const ClapTrap& ct){
-   std::cout << "copy constructor called.." << std::endl;
+   std::cout << " ClapTrap copy constructor called.." << std::endl;
     *this = ct;
 }
 
@@ -48,13 +48,12 @@ void ClapTrap::attack(const std::string& target){
 void ClapTrap::takeDamage(unsigned int amount){
 
    if ((int)amount <= 0){
-
       std::cout << "invalid amount" << std::endl;
       return;
    }
    if (amount >= hit_p && hit_p)
    {
-      std::cout << "not enough hit points to support the amount " << amount << " of damage";
+      std::cout << "not enough hit points to support the amount " << amount << " of damage to the ClapTrap";
       std::cout << std::endl;
       hit_p = 0;
    }
@@ -66,30 +65,29 @@ void ClapTrap::takeDamage(unsigned int amount){
 
    }
    if (!hit_p)
-      std::cout << Name << " is dead" << std::endl;
+      std::cout << Name << " the ClapTrap is dead" << std::endl;
 
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
     if ((int)amount <= 0){
-
       std::cout << "invalid amount" << std::endl;
       return;
    }
    if (!hit_p)
-      std::cout << Name << " has already died" << std::endl;
+      std::cout << Name << " the ClapTrap has already died" << std::endl;
    else if (!energ_p)
       std::cout << "ClapTrap " << Name << " has no energy left to be repaired" <<  std::endl;
    else
    {
       hit_p+= amount;
       energ_p--;
-      std::cout << "ClapTrap " << Name << " repaired by "  << amount << " `hits points back!";
+      std::cout << "ClapTrap " << Name << " repaired by "  << amount << " hits points back!";
       std::cout << std::endl;
    }
 
 }
 
 ClapTrap::~ClapTrap(){
-   std::cout << "Default destructor called.." << std::endl;
+   std::cout << " ClapTrap Default destructor called.." << std::endl;
 }

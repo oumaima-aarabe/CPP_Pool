@@ -4,13 +4,14 @@
 
 int main ()
 {
-	ScavTrap ayoub("oumi");
+	ScavTrap saba("oumi");
 
-	ScavTrap oumi(ayoub);
+	ScavTrap oumi(saba);
 
-	ayoub.attack("saba");
-	ayoub.beRepaired(1);
-	ayoub.takeDamage(1);
-	ayoub.guardGate();
+	saba.attack("saba");
+	saba.beRepaired(5);
+	saba.takeDamage(1);
+	saba.takeDamage(10);
+	saba.guardGate();
 
 }

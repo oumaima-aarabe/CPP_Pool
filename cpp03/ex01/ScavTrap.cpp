@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap Default Constructor called"  << std::endl;
     Name = "ScavTrap";
@@ -9,7 +9,7 @@ ScavTrap::ScavTrap()
     attack_dmg = 20;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "ScavTrap Parametrized Constructor called"  << std::endl;
     Name = name;
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(std::string name)
     attack_dmg = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& scavTrap)
+ScavTrap::ScavTrap(const ScavTrap& scavTrap) : ClapTrap(scavTrap)
 {
 	std::cout << "ScavTrap Copy constructor called"  << std::endl;
 	*this = scavTrap;
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(const ScavTrap& scavTrap)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& st)
 {
-	std::cout << "ScavTrap Assignation operator called"  << std::endl;
+	// std::cout << "ScavTrap Assignation operator called"  << std::endl;
 	this->Name = st.Name;
 	this->hit_p = st.hit_p;
 	this->energ_p = st.energ_p;

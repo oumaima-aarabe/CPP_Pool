@@ -6,6 +6,8 @@ int main ()
 {
 	ScavTrap ayoub("oumi");
 
+	ScavTrap oumi(ayoub);
+
 	ayoub.attack("saba");
 	ayoub.beRepaired(1);
 	ayoub.takeDamage(1);

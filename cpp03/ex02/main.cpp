@@ -1,14 +1,16 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 
 int main ()
 {
-	ScavTrap ayoub("oumi");
+	FragTrap oumi("oumi");
 
-	ayoub.attack("saba");
-	ayoub.beRepaired(1);
-	ayoub.takeDamage(1);
-	ayoub.guardGate();
+	oumi.attack("saba");
+	oumi.beRepaired(1);
+	oumi.takeDamage(1);
+	oumi.highFivesGuys();
+	// ayoub.guardGate();
 
 }

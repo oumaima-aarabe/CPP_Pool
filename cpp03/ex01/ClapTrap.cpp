@@ -3,18 +3,18 @@
 ClapTrap::ClapTrap(){
    std::cout << "Default constructor called.." << std::endl;
    Name = "random";
-   hit_p = 100;
-   energ_p = 50;
-   attack_dmg = 20;
+   hit_p = 10;
+   energ_p = 10;
+   attack_dmg = 0;
 }
 
 
 ClapTrap::ClapTrap(std::string _name){
    std::cout << "parameterized constructor called.." << std::endl;
     Name = _name;
-    hit_p = 100;
-   energ_p = 50;
-   attack_dmg = 20;
+    hit_p = 10;
+   energ_p = 10;
+   attack_dmg = 0;
 
 }
 
@@ -91,5 +91,5 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 ClapTrap::~ClapTrap(){
-   std::cout << "Default cdestructor called.." << std::endl;
+   std::cout << "Default destructor called.." << std::endl;
 }

@@ -36,29 +36,55 @@ ClapTrap::ClapTrap(const ClapTrap& ct){
 
 void ClapTrap::attack(const std::string& target){
    if (!hit_p || !energ_p)
-      std::cout << "ClapTrap" << Name << "can’t do anything to" << target << std::endl;
-   else{
-      hit_p-=attack_dmg;
+      std::cout << "ClapTrap " << Name << " can’t do anything to " << target << std::endl;
+   else
+   {
       energ_p--;
-      std::cout << "ClapTrap" << Name << "attacks" << target << "causing" << attack_dmg << "points of damage!";
+      std::cout << "ClapTrap " << Name << " attacks " << target << " causing " << attack_dmg << " points of damage!";
       std::cout << std::endl;
    }
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-   attack_dmg = amount;
+
+   if ((int)amount <= 0){
+
+      std::cout << "invalid amount" << std::endl;
+      return;
+   }
+   if (amount >= hit_p && hit_p)
+   {
+      std::cout << "not enough hit points to support the amount " << amount << " of damage";
+      std::cout << std::endl;
+      hit_p = 0;
+   }
+   else if (hit_p)
+   {
+      hit_p -= amount;
+      std::cout << Name << " took " << amount << " points of damage. ";
+      std::cout << "his hit points now stand at " << hit_p << std::endl;
+
+   }
+   if (!hit_p)
+      std::cout << Name << " is dead" << std::endl;
+
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (!hit_p)
-      std::cout << "ClapTrap" << Name << "is dead" <<  std::endl;
+    if ((int)amount <= 0){
+
+      std::cout << "invalid amount" << std::endl;
+      return;
+   }
+   if (!hit_p)
+      std::cout << Name << " has already died" << std::endl;
    else if (!energ_p)
-      std::cout << "ClapTrap" << Name << "can’t be repaired has no energy left to be repaired" <<  std::endl;
-   else if (amount)
+      std::cout << "ClapTrap " << Name << " has no energy left to be repaired" <<  std::endl;
+   else
    {
       hit_p+= amount;
       energ_p--;
-      std::cout << "ClapTrap" << Name << "repaired"  << amount << "hits points back!";
+      std::cout << "ClapTrap " << Name << " repaired by "  << amount << " `hits points back!";
       std::cout << std::endl;
    }
 

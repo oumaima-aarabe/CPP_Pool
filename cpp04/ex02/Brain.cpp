@@ -2,7 +2,7 @@
 
 Brain::Brain()
 {
-    std::cout << "Brain constructor called\n";
+    std::cout << "Brain constructor called" << std::endl;
 }
 
 Brain::Brain(const Brain& brain)
@@ -18,5 +18,5 @@ Brain& Brain::operator=(const Brain& brain)
 
 Brain::~Brain()
 {
-    std::cout << "Brain destructor called\n";
+    std::cout << "Brain destructor called" << std::endl;
 }

@@ -16,6 +16,16 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade)
     grade = _grade;
 }
 
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat& B)
+{
+    if (this != &B)
+    {
+        this->name = B.name;
+        this->grade = B.grade;
+    }
+    return (*this);
+}
 Bureaucrat::~Bureaucrat(){
 }
 

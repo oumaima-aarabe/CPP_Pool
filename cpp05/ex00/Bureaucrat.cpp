@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-    name = unameit;
+    name = "unameit";
     grade = 150;
 }
 
@@ -49,7 +49,7 @@ void Bureaucrat::increment()
     
 }
 
-void Bureaucrat::increment()
+void Bureaucrat::decrement()
 {
     if (grade == 150)
         throw GradeTooLowException();

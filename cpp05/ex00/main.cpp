@@ -3,13 +3,11 @@
 int main()
 {
     try {
-            Bureaucrat B = Bureaucrat("oumi", 1);
-            Bureaucrat R = Bureaucrat("oumi", 150);
-            Bureaucrat C = Bureaucrat("oumi", 90);
-            B.
+            Bureaucrat B = Bureaucrat("oumi", 150);
+            B.decrement();
     }
     catch (std::exception & e)
     {
-
+        std::cout << e.what() << std::endl;
     }
 }

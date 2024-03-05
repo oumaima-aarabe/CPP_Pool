@@ -18,6 +18,7 @@ class Bureaucrat
 
         void decrement();
         void increment();
+        void signForm(Form &f);
 
 
         class GradeTooHighException : public std::exception {
@@ -30,7 +31,5 @@ class Bureaucrat
                 return "grade to low";
             }
         };
-
-
-
 };
+std::ostream & operator<< (std::ostream &op,  const Bureaucrat &b);

@@ -35,7 +35,7 @@ AForm &AForm::operator=(const AForm &f)
     return (*this);
 }
 
-bool AForm::getIfSigned()
+bool AForm::getIfSigned() const
 {
     return isSigned;
 }

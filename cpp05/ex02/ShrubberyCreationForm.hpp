@@ -3,7 +3,7 @@
 
 class AForm;
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public AForm
 {
     private:
         ShrubberyCreationForm();
@@ -13,6 +13,6 @@ class ShrubberyCreationForm
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& scf);
         ~ShrubberyCreationForm();
 
-        void execute(const Bureaucrat&) const;
+        void execute(Bureaucrat const&) const;
 
 };

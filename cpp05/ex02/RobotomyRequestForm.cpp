@@ -29,18 +29,18 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &r
     return (*this);
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat& executor) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getIfSigned())
     {
         std::cerr << executor.getName() << " can't execute rrf, form is unsigned" << std::endl;
-        return;
+        throw AForm::CannotExcute();
     }
-    else if(this->getGrade() < executor.getGrade())
+    else if(this->getGradeEx() < executor.getGrade())
         throw AForm::GradeTooLowException();
     std::cout << "ZZZZZZZZZZZZzzzzzzzzzZZZZZZzzzzzzzz" << std::endl;
     std::srand(std::time(0));
-    if ((std::rand() / (RAND_MAX + 1) < 0.5))
+    if ((std::rand() / ((long)RAND_MAX + 1) < 0.5))
         std::cout << executor.getName() << " has been robotomized successfully." << std::endl;
     else
         std::cout << executor.getName() << " has failed to be robotomized." << std::endl;

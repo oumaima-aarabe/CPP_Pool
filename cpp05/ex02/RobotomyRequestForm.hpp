@@ -3,7 +3,7 @@
 
 class AForm;
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public AForm
 {
     private:
         RobotomyRequestForm();
@@ -13,6 +13,6 @@ class RobotomyRequestForm
         RobotomyRequestForm& operator=(const RobotomyRequestForm& rrf);
         ~RobotomyRequestForm();
 
-        void execute(const Bureaucrat&) const;
+        void execute(Bureaucrat const&) const;
 
 };

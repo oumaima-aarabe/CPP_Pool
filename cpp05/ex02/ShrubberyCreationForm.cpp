@@ -1,6 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
@@ -29,24 +30,27 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getIfSigned())
     {
         std::cerr << executor.getName() << " can't execute scf, form is unsigned" << std::endl;
-        return;
+        throw AForm::CannotExcute();
     }
-    else if(this->getGrade() < executor.getGrade())
+    if(this->getGradeEx() < executor.getGrade())
         throw AForm::GradeTooLowException();
-    std::ofstream out(executor.getName() + _shrubbery.c_str());
+    std::ofstream out(executor.getName() + "_shrubbery");
 
-    if(!out.isopen())
-        return(std::cerr << "error opening file" << std::endl);
-    
+    if(!out.is_open())
+    {
+        std::cerr << "error opening file" << std::endl;
+        throw AForm::CannotExcute();
+    }
+
     out << "              v .   ._, |_  .,\n"
-        << "           `-._\/  .  \ /    |/_\n"
-        << "               \\  _\, y | \//\n"
-        << "         _\_.___\\, \\/ -.\||\n"
+        << "           `-._\\/  .  \\ /    |/_\n"
+        << "               \\  _\\, y | \\//\n"
+        << "         _\\_.___\\, \\/ -.\\||\n"
         << "           `7-,--.`._||  / / ,\n"
         << "           /'     `-. `./ / |/_.'\n"
         << "                     |    |//\n"
@@ -54,5 +58,5 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
         << "                     |-   |\n"
         << "                     |   =|\n"
         << "                     |    |\n"
-        << "--------------------/ ,  . \--------._\n"
+        << "--------------------/ ,  . \\--------._\n";
 }

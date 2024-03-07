@@ -3,7 +3,7 @@
 
 class AForm;
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
     private:
         PresidentialPardonForm();
@@ -12,7 +12,6 @@ class PresidentialPardonForm
         PresidentialPardonForm(const PresidentialPardonForm& ppf);
         PresidentialPardonForm& operator=(const PresidentialPardonForm& ppf);
         ~PresidentialPardonForm();
-
-        void execute(const Bureaucrat&) const;
+        void execute(Bureaucrat const&) const;
 
 };

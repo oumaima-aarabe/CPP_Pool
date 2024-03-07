@@ -27,14 +27,14 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return (*this);
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getIfSigned())
     {
         std::cerr << executor.getName() << " can't execute ppf, form is unsigned" << std::endl;
-        return;
+        throw AForm::CannotExcute();
     }
-    else if(this->getGrade() < executor.getGrade())
+    else if(this->getGradeEx() < executor.getGrade())
         throw AForm::GradeTooLowException();
     std::cout << executor.getName() << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 

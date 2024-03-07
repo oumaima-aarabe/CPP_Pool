@@ -1,11 +1,11 @@
-#include "AForm.hpp"
+#include "Form.hpp"
 
-AForm::AForm()
+Form::Form()
 {
 
 }
 
-AForm::AForm(std::string _name, int _gradeEx, int _gradeReq)
+Form::Form(std::string _name, int _gradeEx, int _gradeReq)
 {
     name = _name;
     isSigned = false;
@@ -17,12 +17,12 @@ AForm::AForm(std::string _name, int _gradeEx, int _gradeReq)
     gradeReq = _gradeReq;
 }
 
-AForm::AForm(const AForm& f)
+Form::Form(const Form& f)
 {
     *this = f;
 }
 
-AForm &AForm::operator=(const AForm &f)
+Form &Form::operator=(const Form &f)
 {
     if (this != &f)
     {
@@ -35,27 +35,27 @@ AForm &AForm::operator=(const AForm &f)
     return (*this);
 }
 
-bool AForm::getIfSigned() const
+bool Form::getIfSigned()
 {
     return isSigned;
 }
 
-int AForm::getGradeEx() const
+int Form::getGradeEx() const
 {
     return gradeEx;
 }
 
-int AForm::getGradeReq() const
+int Form::getGradeReq() const
 {
     return gradeReq;
 }
 
-std::string AForm::getName() const
+std::string Form::getName() const
 {
     return name;
 }
 
-void AForm::beSigned(Bureaucrat &B)
+void Form::beSigned(Bureaucrat &B)
 {
     if (B.getGrade() > this->gradeReq)
         throw GradeTooLowException();
@@ -63,11 +63,11 @@ void AForm::beSigned(Bureaucrat &B)
 }
 
 
-AForm::~AForm(){}
+Form::~Form(){}
 
-std::ostream & operator<< (std::ostream &op,  const AForm &f)
+std::ostream & operator<< (std::ostream &op,  const Form &f)
 {
-    op << " the AForm named : " << f.getName() << " require the grade " 
+    op << " the Form named : " << f.getName() << " require the grade " 
         << f.getGradeReq() << "to be signed, and to be executed it requires the following grade:"
          << f.getGradeEx() << std::endl;
     return (op);

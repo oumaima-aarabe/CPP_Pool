@@ -17,6 +17,10 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade)
     grade = _grade;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& b)
+{
+    *this = b;
+}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& B)
 {
@@ -43,10 +47,8 @@ void Bureaucrat::increment()
 {
     if (grade == 1)
         throw GradeTooHighException();
-    else
-    {
-        this->grade--;
-    }
+    this->grade--;
+    std::cout << "Bureaucrat " << this->getName() << " grade now is: " << this->getGrade() << std::endl;
     
 }
 
@@ -54,26 +56,30 @@ void Bureaucrat::decrement()
 {
     if (grade == 150)
         throw GradeTooLowException();
-    else
-    {
-        this->grade++;
-    }
+    std::cout << "Bureaucrat " << this->getName() << " grade now is: " << this->getGrade() << std::endl;
+    this->grade++;
     
 }
 
 std::ostream & operator<< ( std::ostream &op,  const Bureaucrat &b)
 {
-    op << b.getName() << "with grade" << b.getGrade();
+    op << b.getName() << "with grade" << b.getGrade() << std::endl;
     return (op);
 }
 
 void    Bureaucrat::signForm(Form &form)
 {
-    if (form.getIfSigned())
+    try 
+    {
+        form.beSigned(*this);
         std::cout << this->getName() << " signed " << form.getName()
             << std::endl;
-    else
-         std::cout << this->getName() << "  couldn't sign " << form.getName()
+    }
+    catch (const std::exception& e)
+    {
+
+         std::cerr << this->getName() << "  couldn't sign " << form.getName()
             << " because maf2idoch "<< std::endl;
+    }
         
 }

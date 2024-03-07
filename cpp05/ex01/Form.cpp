@@ -17,6 +17,11 @@ Form::Form(std::string _name, int _gradeEx, int _gradeReq)
     gradeReq = _gradeReq;
 }
 
+Form::Form(const Form& f)
+{
+    *this = f;
+}
+
 Form &Form::operator=(const Form &f)
 {
     if (this != &f)
@@ -64,6 +69,6 @@ std::ostream & operator<< (std::ostream &op,  const Form &f)
 {
     op << " the Form named : " << f.getName() << " require the grade " 
         << f.getGradeReq() << "to be signed, and to be executed it requires the following grade:"
-         << f.getGradeEx();
+         << f.getGradeEx() << std::endl;
     return (op);
 }

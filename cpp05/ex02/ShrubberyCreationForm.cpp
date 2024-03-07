@@ -43,7 +43,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     if(!out.isopen())
         return(std::cerr << "error opening file" << std::endl);
     
-
     out << "              v .   ._, |_  .,\n"
         << "           `-._\/  .  \ /    |/_\n"
         << "               \\  _\, y | \//\n"
@@ -56,6 +55,4 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
         << "                     |   =|\n"
         << "                     |    |\n"
         << "--------------------/ ,  . \--------._\n"
-    
-
 }

@@ -1,14 +1,18 @@
 #include "Bureaucrat.hpp"
 
-int main()
+int main ()
 {
-    try {
-            Bureaucrat B = Bureaucrat("oumi", 1);
-            Bureaucrat R = Bureaucrat("oumi", 150);
-            Bureaucrat C = Bureaucrat("oumi", 90);
-            B.
-    }
-    catch {
 
+    try
+    {
+        Bureaucrat b =  Bureaucrat("oumi", 23);
+        b.decrement();
+        Form c = Form("form", 100, 9);
+        b.signForm(c);
     }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
 }

@@ -34,7 +34,7 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
         std::cerr << executor.getName() << " can't execute ppf, form is unsigned" << std::endl;
         throw AForm::CannotExcute();
     }
-    else if(this->getGradeEx() < executor.getGrade())
+    if(this->getGradeEx() < executor.getGrade())
         throw AForm::GradeTooLowException();
     std::cout << executor.getName() << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 

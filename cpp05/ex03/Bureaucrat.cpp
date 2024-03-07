@@ -62,7 +62,7 @@ void Bureaucrat::decrement()
 
 std::ostream & operator<< ( std::ostream &op,  const Bureaucrat &b)
 {
-    op << b.getName() << "with grade" << b.getGrade() << std::endl;
+    op << b.getName() << " with grade " << b.getGrade() << std::endl;
     return (op);
 }
 
@@ -78,7 +78,7 @@ void    Bureaucrat::signForm(AForm &form)
     {
 
          std::cerr << this->getName() << "  couldn't sign " << form.getName()
-            << " because maf2idoch "<< std::endl;
+            << " because of low grade "<< std::endl;
     }
         
 }

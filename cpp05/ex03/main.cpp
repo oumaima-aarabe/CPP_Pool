@@ -10,14 +10,13 @@ int main()
     try{
         Intern someRandomIntern;
         AForm* rrf;
-
+        Bureaucrat Bender("Saba", 2);
         rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
         std::cout << *rrf;
         delete rrf;
     }
     catch (std::exception& e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
-    return (0);
 }

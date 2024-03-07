@@ -6,6 +6,8 @@
 
 int main()
 {
+    try{
+
     Bureaucrat              bureaucrat("Bureaucrat", 1);
     PresidentialPardonForm  form("Form");
     ShrubberyCreationForm   form1("Form");
@@ -21,4 +23,9 @@ int main()
     form.execute(bureaucrat);
     form1.execute(bureaucrat);
     form2.execute(bureaucrat);
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }

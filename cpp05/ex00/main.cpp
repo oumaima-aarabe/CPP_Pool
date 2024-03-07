@@ -3,11 +3,12 @@
 int main()
 {
     try {
-            Bureaucrat B = Bureaucrat("oumi", 150);
-            B.decrement();
+        Bureaucrat B = Bureaucrat("oumi", 16);
+        B.increment();
+        B.decrement();
     }
     catch (std::exception & e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 }

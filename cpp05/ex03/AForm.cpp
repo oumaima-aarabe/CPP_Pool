@@ -5,7 +5,7 @@ AForm::AForm()
 
 }
 
-AForm::AForm(std::string _name, int _gradeEx, int _gradeReq)
+AForm::AForm(std::string _name, int _gradeReq, int _gradeEx)
 {
     name = _name;
     isSigned = false;
@@ -68,7 +68,7 @@ AForm::~AForm(){}
 std::ostream & operator<< (std::ostream &op,  const AForm &f)
 {
     op << " the AForm named : " << f.getName() << " require the grade " 
-        << f.getGradeReq() << "to be signed, and to be executed it requires the following grade:"
+        << f.getGradeReq() << " to be signed, and to be executed it requires the following grade: "
          << f.getGradeEx() << std::endl;
     return (op);
 }

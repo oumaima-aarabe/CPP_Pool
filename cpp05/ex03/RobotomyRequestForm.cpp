@@ -36,7 +36,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         std::cerr << executor.getName() << " can't execute rrf, form is unsigned" << std::endl;
         throw AForm::CannotExcute();
     }
-    else if(this->getGradeEx() < executor.getGrade())
+    if(this->getGradeEx() < executor.getGrade())
         throw AForm::GradeTooLowException();
     std::cout << "ZZZZZZZZZZZZzzzzzzzzzZZZZZZzzzzzzzz" << std::endl;
     std::srand(std::time(0));

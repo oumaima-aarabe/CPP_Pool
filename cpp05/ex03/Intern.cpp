@@ -28,15 +28,18 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget)
         if (formName == formN[i])
             break;
     }
-
+    
     switch (i){
         case 0:
+            std::cout << "Intern creates form: " << formName << std::endl;
             return(new ShrubberyCreationForm(formTarget));
             break;
         case 1:
+            std::cout << "Intern creates form: " << formName << std::endl;
             return(new RobotomyRequestForm(formTarget));
             break;
         case 2:
+            std::cout << "Intern creates form: " << formName << std::endl;
             return(new PresidentialPardonForm(formTarget));
             break;
         default:

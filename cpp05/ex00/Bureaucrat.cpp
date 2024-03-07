@@ -42,26 +42,24 @@ void Bureaucrat::increment()
 {
     if (grade == 1)
         throw GradeTooHighException();
-    else
-    {
-        this->grade--;
-    }
-    
+    std::cout << "Bureaucrat " << this->getName() << " grade before inerement : " << this->getGrade() << std::endl;
+    this->grade--;
+    std::cout << "Bureaucrat " << this->getName() << " grade after increment : " << this->getGrade() << std::endl;
+
 }
 
 void Bureaucrat::decrement()
 {
     if (grade == 150)
         throw GradeTooLowException();
-    else
-    {
-        this->grade++;
-    }
+    std::cout << "Bureaucrat " << this->getName() << " grade before decrement : " << this->getGrade() << std::endl;
+    this->grade++;
+    std::cout << "Bureaucrat " << this->getName() << " grade after decrement : " << this->getGrade() << std::endl;
     
 }
 
-std::ostream & operator<< (const std::ostream &op,  const Bureaucrat &b)
+std::ostream& operator<< (std::ostream &op,  const Bureaucrat &b)
 {
-    op << b.getName() << "with grade" << b.getGrade();
+    op << b.getName() << " with grade " << b.getGrade() << std::endl;
     return (op);
 }

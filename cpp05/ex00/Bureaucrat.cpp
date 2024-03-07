@@ -6,6 +6,13 @@ Bureaucrat::Bureaucrat()
     grade = 150;
 }
 
+
+Bureaucrat::Bureaucrat(const Bureaucrat& b)
+{
+    *this = b;
+}
+
+
 Bureaucrat::Bureaucrat(std::string _name, int _grade)
 {
     name = _name;

@@ -19,33 +19,34 @@ Intern& Intern::operator= (const Intern& intern)
     return (*this);
 }
 
+
+AForm* ShrubberyCreation(std::string formTarget)
+{
+    return (new ShrubberyCreationForm(formTarget));
+}
+
+AForm* PresidentialPardon(std::string formTarget)
+{
+    return (new PresidentialPardonForm(formTarget));
+}
+
+AForm* RobotomyRequest(std::string formTarget)
+{
+    return (new RobotomyRequestForm(formTarget));
+}
 AForm* Intern::makeForm(std::string formName, std::string formTarget)
 {
     std::string formN[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+    AForm*    (*forms[])(std::string) = {&RobotomyRequest, &PresidentialPardon, &ShrubberyCreation};
     int i = 0;
     for (; i <= 2; i++)
     {
         if (formName == formN[i])
-            break;
+        {
+            std::cout << "Intern creates form: " << formName << std::endl;
+            return(forms[i](formTarget));
+        }
     }
-    
-    switch (i){
-        case 0:
-            std::cout << "Intern creates form: " << formName << std::endl;
-            return(new ShrubberyCreationForm(formTarget));
-            break;
-        case 1:
-            std::cout << "Intern creates form: " << formName << std::endl;
-            return(new RobotomyRequestForm(formTarget));
-            break;
-        case 2:
-            std::cout << "Intern creates form: " << formName << std::endl;
-            return(new PresidentialPardonForm(formTarget));
-            break;
-        default:
-            throw FormDoesntExist();
-            break;
-    }
+    throw FormDoesntExist();
     return (NULL);
-
 }

@@ -8,5 +8,6 @@ int main(int ac , char **av)
         std::cerr << "Error :need one param to convert " << std::endl;
         return (1);
     }
-    ScalarConverter::convert(av[1]);
+    std::string input = av[1];
+    ScalarConverter::convert(input);
 }

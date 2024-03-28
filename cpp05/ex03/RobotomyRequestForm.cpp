@@ -40,7 +40,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         throw AForm::GradeTooLowException();
     std::cout << "ZZZZZZZZZZZZzzzzzzzzzZZZZZZzzzzzzzz" << std::endl;
     std::srand(std::time(0));
-    if ((std::rand() / ((long)RAND_MAX + 1) < 0.5))
+    if ((random() % (long)2 == 0))
         std::cout << executor.getName() << " has been robotomized successfully." << std::endl;
     else
         std::cout << executor.getName() << " has failed to be robotomized." << std::endl;

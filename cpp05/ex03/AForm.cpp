@@ -5,9 +5,8 @@ AForm::AForm()
 
 }
 
-AForm::AForm(std::string _name, int _gradeReq, int _gradeEx)
+AForm::AForm(std::string _name, int _gradeReq, int _gradeEx) : name(_name)
 {
-    name = _name;
     isSigned = false;
     if (_gradeEx > 150 || _gradeReq > 150)
         throw GradeTooLowException();
@@ -26,7 +25,7 @@ AForm &AForm::operator=(const AForm &f)
 {
     if (this != &f)
     {
-        this->name = f.name;
+        static_cast<std::string>(this->name) = f.name;
         this->isSigned = f.isSigned;
         this->gradeEx = f.gradeEx;
         this->gradeReq = f.gradeReq;

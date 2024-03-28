@@ -6,7 +6,7 @@
 class Form;
 class Bureaucrat
 {
-    std::string name;
+    const std::string name;
     int grade;
 
     public :

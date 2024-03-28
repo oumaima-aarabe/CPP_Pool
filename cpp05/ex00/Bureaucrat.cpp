@@ -1,8 +1,7 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("unameit")
 {
-    name = "unameit";
     grade = 150;
 }
 
@@ -13,9 +12,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& b)
 }
 
 
-Bureaucrat::Bureaucrat(std::string _name, int _grade)
+Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 {
-    name = _name;
     if (_grade > 150)
         throw GradeTooLowException();
     if (_grade < 1)
@@ -24,19 +22,21 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade)
 }
 
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat& B)
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat& B) 
 {
     if (this != &B)
     {
-        this->name = B.name;
+        static_cast<std::string>(this->name) = B.name;
         this->grade = B.grade;
     }
     return (*this);
 }
+
+
 Bureaucrat::~Bureaucrat(){
 }
 
-std::string Bureaucrat::getName() const{
+const std::string Bureaucrat::getName() const{
     return name;
 }
 
